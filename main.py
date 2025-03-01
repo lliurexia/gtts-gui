@@ -63,7 +63,20 @@ class MainWindow(QMainWindow):
         # Language selection
         lang_layout = QHBoxLayout()
         self.lang_combo = QComboBox()
-        self.lang_combo.addItems(gtts.lang.tts_langs().keys())
+        
+        # Get languages with their full names
+        languages = gtts.lang.tts_langs()
+        # Modify Catalan to Catalan-Valencian
+        if 'ca' in languages:
+            languages['ca'] = 'Catalan-Valencian'
+        self.lang_codes = list(languages.keys())
+        lang_names = [f"{lang} ({languages[lang]})" for lang in self.lang_codes]
+        
+        # Add sorted language names to combo box
+        sorted_items = sorted(zip(lang_names, self.lang_codes), key=lambda x: x[0])
+        self.lang_names_to_codes = {name: code for name, code in sorted_items}
+        self.lang_combo.addItems([name for name, _ in sorted_items])
+        
         self.domain_combo = QComboBox()
         self.domain_combo.addItems(['com', 'co.uk', 'ca', 'co.in', 'ie', 'co.za'])
         lang_layout.addWidget(QLabel('Language:'))
@@ -114,7 +127,7 @@ class MainWindow(QMainWindow):
         # Create and start the worker thread
         self.worker = TTSWorker(
             text=text,
-            lang=self.lang_combo.currentText(),
+            lang=self.lang_names_to_codes[self.lang_combo.currentText()],
             tld=self.domain_combo.currentText()
         )
         self.worker.finished.connect(self.on_speech_generated)
