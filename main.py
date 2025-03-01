@@ -101,6 +101,7 @@ class MainWindow(QMainWindow):
         # Language selection
         lang_layout = QHBoxLayout()
         self.lang_combo = QComboBox()
+        self.lang_combo.setFixedWidth(250)  # Set fixed width for language dropdown
         
         # Get languages with their full names
         languages = gtts.lang.tts_langs()
@@ -178,6 +179,7 @@ class MainWindow(QMainWindow):
         
         # Domain selection
         self.domain_combo = QComboBox()
+        self.domain_combo.setFixedWidth(150)  # Set fixed width for accent dropdown
         self.domain_combo.setEnabled(False)  # Disabled by default
         
         # Connect language change to domain update
@@ -189,6 +191,12 @@ class MainWindow(QMainWindow):
         lang_layout.addWidget(self.lang_combo)
         lang_layout.addWidget(QLabel(_('Accent:')))
         lang_layout.addWidget(self.domain_combo)
+        
+        # Add About button to language layout with some spacing
+        lang_layout.addSpacing(20)
+        self.about_button = QPushButton(_('About'))
+        self.about_button.clicked.connect(self.show_about_dialog)
+        lang_layout.addWidget(self.about_button)
         layout.addLayout(lang_layout)
         
         # Text input
@@ -218,10 +226,7 @@ class MainWindow(QMainWindow):
         self.save_button.setEnabled(False)
         button_layout.addWidget(self.save_button)
         
-        # About button
-        self.about_button = QPushButton(_('About'))
-        self.about_button.clicked.connect(self.show_about_dialog)
-        button_layout.addWidget(self.about_button)
+
         
         layout.addLayout(button_layout)
         

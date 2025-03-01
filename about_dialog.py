@@ -43,11 +43,7 @@ class AboutDialog(QDialog):
         layout.addWidget(description)
         
         # Credits
-        credits = QLabel(
-            builtins._("\nDeveloped by LliureX\n"
-            "Using PyQt6 and gTTS (Google Text-to-Speech)\n"
-            "© 2024 LliureX")
-        )
+        credits = QLabel(builtins._("Developed by LliureX\nUsing PyQt6 and gTTS (Google Text-to-Speech)\n© 2025 LliureX"))
         credits.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(credits)
         
