@@ -16,6 +16,7 @@ from PyQt6.QtWidgets import (
 from about_dialog import AboutDialog
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt6.QtGui import QIcon
+from pathlib import Path
 from gtts import gTTS
 import gtts.lang
 
@@ -43,6 +44,10 @@ class MainWindow(QMainWindow):
         super().__init__()
         self.setWindowTitle('Google Text-to-Speech')
         self.setMinimumSize(600, 400)
+        
+        # Set window icon
+        icon_path = Path(__file__).parent / 'icons' / 'app.svg'
+        self.setWindowIcon(QIcon(str(icon_path)))
         
         # Initialize pygame mixer for audio playback
         pygame.mixer.init()
@@ -256,6 +261,11 @@ class MainWindow(QMainWindow):
 
 def main():
     app = QApplication(sys.argv)
+    
+    # Set application icon
+    icon_path = Path(__file__).parent / 'icons' / 'app.svg'
+    app.setWindowIcon(QIcon(str(icon_path)))
+    
     window = MainWindow()
     window.show()
     sys.exit(app.exec())
