@@ -78,11 +78,45 @@ class MainWindow(QMainWindow):
         self.lang_names_to_codes = {name: code for name, code in sorted_items}
         self.lang_combo.addItems([name for name, _ in sorted_items])
         
+        # Language-specific domain mappings
+        self.lang_domains = {
+            'en': {  # English
+                'United States': 'us',
+                'United Kingdom': 'co.uk',
+                'Australia': 'com.au',
+                'Canada': 'ca',
+                'India': 'co.in',
+                'Ireland': 'ie',
+                'South Africa': 'co.za',
+                'Nigeria': 'com.ng'
+            },
+            'es': {  # Spanish
+                'Spain': 'es',
+                'Mexico': 'com.mx',
+                'United States': 'us'
+            },
+            'fr': {  # French
+                'France': 'fr',
+                'Canada': 'ca'
+            },
+            'pt': {  # Portuguese
+                'Portugal': 'pt',
+                'Brazil': 'com.br'
+            }
+        }
+        
+        # Domain selection
         self.domain_combo = QComboBox()
-        self.domain_combo.addItems(['com', 'co.uk', 'ca', 'co.in', 'ie', 'co.za'])
+        self.domain_combo.setEnabled(False)  # Disabled by default
+        
+        # Connect language change to domain update
+        self.lang_combo.currentTextChanged.connect(self.update_domains)
+        
+        # Initial domain setup
+        self.update_domains(self.lang_combo.currentText())
         lang_layout.addWidget(QLabel('Language:'))
         lang_layout.addWidget(self.lang_combo)
-        lang_layout.addWidget(QLabel('Domain:'))
+        lang_layout.addWidget(QLabel('Accent:'))
         lang_layout.addWidget(self.domain_combo)
         layout.addLayout(lang_layout)
         
@@ -134,7 +168,7 @@ class MainWindow(QMainWindow):
         self.worker = TTSWorker(
             text=text,
             lang=self.lang_names_to_codes[self.lang_combo.currentText()],
-            tld=self.domain_combo.currentText()
+            tld=self.lang_domains.get(self.lang_names_to_codes[self.lang_combo.currentText()], {}).get(self.domain_combo.currentText(), 'com')
         )
         self.worker.finished.connect(self.on_speech_generated)
         self.worker.error.connect(self.on_error)
@@ -153,6 +187,23 @@ class MainWindow(QMainWindow):
         pygame.mixer.music.set_endevent(pygame.USEREVENT)
         self.is_playing = True
         
+    def update_domains(self, lang_name: str):
+        # Clear current items
+        self.domain_combo.clear()
+        
+        # Get language code from the display name
+        lang_code = self.lang_names_to_codes[lang_name]
+        
+        # If language has specific domains, populate and enable
+        if lang_code in self.lang_domains:
+            domains = self.lang_domains[lang_code]
+            self.domain_combo.addItems(domains.keys())
+            self.domain_combo.setEnabled(True)
+        else:
+            # For languages without specific domains, use default and disable
+            self.domain_combo.addItem('Default')
+            self.domain_combo.setEnabled(False)
+    
     def on_error(self, error_msg: str):
         self.progress_bar.setVisible(False)
         self.start_button.setEnabled(True)
