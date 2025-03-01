@@ -19,6 +19,8 @@ from PyQt6.QtGui import QIcon
 from pathlib import Path
 from gtts import gTTS
 import gtts.lang
+import os
+import locale
 
 class TTSWorker(QThread):
     finished = pyqtSignal(str)
@@ -81,7 +83,41 @@ class MainWindow(QMainWindow):
         # Add sorted language names to combo box
         sorted_items = sorted(zip(lang_names, self.lang_codes), key=lambda x: x[0])
         self.lang_names_to_codes = {name: code for name, code in sorted_items}
-        self.lang_combo.addItems([name for name, _ in sorted_items])
+        display_names = [name for name, _ in sorted_items]
+        self.lang_combo.addItems(display_names)
+        
+        # Get system language
+        try:
+            # Try multiple methods to get system language
+            system_lang = None
+            # Try LANGUAGE env var first (Ubuntu specific)
+            lang_var = os.getenv('LANGUAGE')
+            if lang_var:
+                # Handle Valencian Catalan special case
+                if lang_var.startswith('ca@valencia'):
+                    system_lang = 'ca'
+                else:
+                    system_lang = lang_var.split(':')[0].split('_')[0].split('@')[0]
+            # Try LANG env var next
+            if not system_lang:
+                lang_var = os.getenv('LANG')
+                if lang_var:
+                    system_lang = lang_var.split('_')[0]
+            # Finally try locale
+            if not system_lang:
+                try:
+                    system_lang = locale.getdefaultlocale()[0].split('_')[0]
+                except (IndexError, AttributeError):
+                    pass
+            print(f'Detected system language: {system_lang}')
+            # Find the display name that matches the system language code
+            for display_name, lang_code in sorted_items:
+                if lang_code == system_lang:
+                    self.lang_combo.setCurrentText(display_name)
+                    break
+        except (IndexError, AttributeError):
+            # If something goes wrong, keep the first language as default
+            pass
         
         # Language-specific domain mappings
         self.lang_domains = {
