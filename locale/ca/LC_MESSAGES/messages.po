@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Google Text-to-Speech"
+msgstr "Google Text a Veu"
+
+msgid "Language:"
+msgstr "Idioma:"
+
+msgid "Accent:"
+msgstr "Accent:"
+
+msgid "Enter text to convert to speech..."
+msgstr "Introdueix el text per convertir a veu..."
+
+msgid "Generate Speech"
+msgstr "Genera Veu"
+
+msgid "Pause"
+msgstr "Pausa"
+
+msgid "Save"
+msgstr "Guarda"
+
+msgid "About"
+msgstr "Quant a"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Please enter some text"
+msgstr "Si us plau, introdueix algun text"
+
+msgid "About Google Text-to-Speech"
+msgstr "Quant a Google Text a Veu"
+
+msgid "Version 1.0"
+msgstr "Versió 1.0"
+
+msgid "A simple and intuitive graphical interface for Google's Text-to-Speech service. Convert text to natural-sounding speech in multiple languages."
+msgstr "Una interfície gràfica simple i intuïtiva per al servei de text a veu de Google. Converteix text a veu natural en múltiples idiomes."
+
+msgid "Developed by LliureX\nUsing PyQt6 and gTTS (Google Text-to-Speech)\n© 2024 LliureX"
+msgstr "Desenvolupat per LliureX\nUtilitzant PyQt6 i gTTS (Google Text a Veu)\n© 2024 LliureX"
+
+msgid "View License"
+msgstr "Veure Llicència"
+
+msgid "Close"
+msgstr "Tanca"
+
+msgid "MIT License"
+msgstr "Llicència MIT"
+
+msgid "Error loading license file."
+msgstr "Error en carregar el fitxer de llicència."

@@ -7,18 +7,19 @@ from PyQt6.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushBut
 from PyQt6.QtCore import Qt
 from PyQt6.QtGui import QFont
 from pathlib import Path
+import builtins
 
 class AboutDialog(QDialog):
     def __init__(self, parent=None):
         super().__init__(parent)
-        self.setWindowTitle("About Google Text-to-Speech")
+        self.setWindowTitle(builtins._("About Google Text-to-Speech"))
         self.setFixedSize(400, 300)
         
         layout = QVBoxLayout()
         self.setLayout(layout)
         
         # Title
-        title = QLabel("Google Text-to-Speech")
+        title = QLabel(builtins._("Google Text-to-Speech"))
         title_font = QFont()
         title_font.setPointSize(16)
         title_font.setBold(True)
@@ -27,15 +28,15 @@ class AboutDialog(QDialog):
         layout.addWidget(title)
         
         # Version
-        version = QLabel("Version 1.0")
+        version = QLabel(builtins._("Version 1.0"))
         version.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(version)
         
         # Description
         description = QLabel(
-            "A simple and intuitive graphical interface for Google's "
+            builtins._("A simple and intuitive graphical interface for Google's "
             "Text-to-Speech service. Convert text to natural-sounding "
-            "speech in multiple languages."
+            "speech in multiple languages.")
         )
         description.setWordWrap(True)
         description.setAlignment(Qt.AlignmentFlag.AlignCenter)
@@ -43,9 +44,9 @@ class AboutDialog(QDialog):
         
         # Credits
         credits = QLabel(
-            "\nDeveloped by LliureX\n"
+            builtins._("\nDeveloped by LliureX\n"
             "Using PyQt6 and gTTS (Google Text-to-Speech)\n"
-            "© 2024 LliureX"
+            "© 2024 LliureX")
         )
         credits.setAlignment(Qt.AlignmentFlag.AlignCenter)
         layout.addWidget(credits)
@@ -53,11 +54,11 @@ class AboutDialog(QDialog):
         # Buttons
         button_layout = QHBoxLayout()
         
-        license_button = QPushButton("View License")
+        license_button = QPushButton(builtins._("View License"))
         license_button.clicked.connect(self.show_license)
         button_layout.addWidget(license_button)
         
-        close_button = QPushButton("Close")
+        close_button = QPushButton(builtins._("Close"))
         close_button.clicked.connect(self.accept)
         button_layout.addWidget(close_button)
         
@@ -68,7 +69,7 @@ class AboutDialog(QDialog):
     
     def show_license(self):
         dialog = QDialog(self)
-        dialog.setWindowTitle("MIT License")
+        dialog.setWindowTitle(builtins._("MIT License"))
         dialog.setFixedSize(500, 400)
         
         layout = QVBoxLayout(dialog)
@@ -83,7 +84,7 @@ class AboutDialog(QDialog):
             license_content = license_path.read_text()
             license_text.setText(license_content)
         except Exception as e:
-            license_text.setText("Error loading license file.")
+            license_text.setText(builtins._("Error loading license file."))
         
         layout.addWidget(license_text)
         

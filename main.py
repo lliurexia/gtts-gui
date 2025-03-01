@@ -7,6 +7,8 @@ import sys
 from pathlib import Path
 from typing import Optional
 import pygame
+import gettext
+import os
 
 from PyQt6.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
@@ -41,10 +43,38 @@ class TTSWorker(QThread):
         except Exception as e:
             self.error.emit(str(e))
 
+def setup_translations():
+    # Get the system language
+    lang = None
+    lang_var = os.getenv('LANGUAGE')
+    if lang_var:
+        # Handle Valencian Catalan special case
+        if lang_var.startswith('ca@valencia'):
+            lang = 'ca'
+        else:
+            lang = lang_var.split(':')[0].split('_')[0].split('@')[0]
+    
+    if not lang:
+        lang_var = os.getenv('LANG')
+        if lang_var:
+            lang = lang_var.split('_')[0]
+    
+    if not lang:
+        lang = 'en'
+    
+    # Set up translations
+    localedir = os.path.join(os.path.dirname(__file__), 'locale')
+    try:
+        translation = gettext.translation('messages', localedir=localedir, languages=[lang])
+        translation.install()
+    except FileNotFoundError:
+        # Fallback to English
+        gettext.install('messages')
+
 class MainWindow(QMainWindow):
     def __init__(self):
         super().__init__()
-        self.setWindowTitle('Google Text-to-Speech')
+        self.setWindowTitle(_('Google Text-to-Speech'))
         self.setMinimumSize(600, 400)
         
         # Set window icon
@@ -155,15 +185,15 @@ class MainWindow(QMainWindow):
         
         # Initial domain setup
         self.update_domains(self.lang_combo.currentText())
-        lang_layout.addWidget(QLabel('Language:'))
+        lang_layout.addWidget(QLabel(_('Language:')))
         lang_layout.addWidget(self.lang_combo)
-        lang_layout.addWidget(QLabel('Accent:'))
+        lang_layout.addWidget(QLabel(_('Accent:')))
         lang_layout.addWidget(self.domain_combo)
         layout.addLayout(lang_layout)
         
         # Text input
         self.text_input = QTextEdit()
-        self.text_input.setPlaceholderText('Enter text to convert to speech...')
+        self.text_input.setPlaceholderText(_('Enter text to convert to speech...'))
         layout.addWidget(self.text_input)
         
         # Progress bar
@@ -174,22 +204,22 @@ class MainWindow(QMainWindow):
         # Buttons
         button_layout = QHBoxLayout()
         
-        self.start_button = QPushButton('Generate Speech')
+        self.start_button = QPushButton(_('Generate Speech'))
         self.start_button.clicked.connect(self.start_speech_generation)
         button_layout.addWidget(self.start_button)
         
-        self.pause_button = QPushButton('Pause')
+        self.pause_button = QPushButton(_('Pause'))
         self.pause_button.clicked.connect(self.pause_resume_audio)
         self.pause_button.setEnabled(False)
         button_layout.addWidget(self.pause_button)
         
-        self.save_button = QPushButton('Save')
+        self.save_button = QPushButton(_('Save'))
         self.save_button.clicked.connect(self.save_audio)
         self.save_button.setEnabled(False)
         button_layout.addWidget(self.save_button)
         
         # About button
-        self.about_button = QPushButton('About')
+        self.about_button = QPushButton(_('About'))
         self.about_button.clicked.connect(self.show_about_dialog)
         button_layout.addWidget(self.about_button)
         
@@ -198,7 +228,7 @@ class MainWindow(QMainWindow):
     def start_speech_generation(self):
         text = self.text_input.toPlainText()
         if not text:
-            QMessageBox.warning(self, 'Error', 'Please enter some text')
+            QMessageBox.warning(self, _('Error'), _('Please enter some text'))
             return
             
         self.progress_bar.setVisible(True)
@@ -307,4 +337,5 @@ def main():
     sys.exit(app.exec())
 
 if __name__ == '__main__':
+    setup_translations()
     main()
