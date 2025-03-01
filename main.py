@@ -13,6 +13,7 @@ from PyQt6.QtWidgets import (
     QComboBox, QTextEdit, QPushButton, QFileDialog, QProgressBar,
     QLabel, QMessageBox
 )
+from about_dialog import AboutDialog
 from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
 from PyQt6.QtGui import QIcon
 from gtts import gTTS
@@ -112,6 +113,11 @@ class MainWindow(QMainWindow):
         self.save_button.setEnabled(False)
         button_layout.addWidget(self.save_button)
         
+        # About button
+        self.about_button = QPushButton('About')
+        self.about_button.clicked.connect(self.show_about_dialog)
+        button_layout.addWidget(self.about_button)
+        
         layout.addLayout(button_layout)
         
     def start_speech_generation(self):
@@ -170,6 +176,10 @@ class MainWindow(QMainWindow):
             self.is_playing = True
             self.pause_button.setText('Pause')
             
+    def show_about_dialog(self):
+        dialog = AboutDialog(self)
+        dialog.exec()
+    
     def save_audio(self):
         if not self.current_sound:
             return
