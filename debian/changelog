@@ -1,3 +1,10 @@
+gtts-gui (1.0.2) stable; urgency=medium
+
+  * Updated desktop file paths for proper installation
+  * Fixed icon path in application
+
+ -- LliureX Team <lliurex@gva.es>  Tue, 04 Mar 2025 21:49:20 +0100
+
 gtts-gui (1.0.1) stable; urgency=medium
 
   * Fixed license display in About dialog
