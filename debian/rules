@@ -13,6 +13,8 @@ override_dh_auto_install:
 	mkdir -p debian/gtts-gui/usr/share/gtts-gui/
 	mkdir -p debian/gtts-gui/usr/lib/gtts-gui/lib/gtts_gui/
 	mkdir -p debian/gtts-gui/usr/lib/gtts-gui/bin/
+	mkdir -p debian/gtts-gui/usr/share/doc/gtts-gui/
+	install -m 644 LICENSE debian/gtts-gui/usr/share/doc/gtts-gui/copyright
 	# Install main application
 	install -m 755 main.py debian/gtts-gui/usr/lib/gtts-gui/bin/main.py
 	install -m 755 debian/gtts-gui-wrapper debian/gtts-gui/usr/bin/gtts-gui

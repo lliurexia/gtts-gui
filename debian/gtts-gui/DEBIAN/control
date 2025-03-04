@@ -1,8 +1,8 @@
 Package: gtts-gui
-Version: 1.0.0
+Version: 1.0.1
 Architecture: all
 Maintainer: LliureX Team
-Installed-Size: 37706
+Installed-Size: 37708
 Depends: python3, python3-pyqt5
 Section: education
 Priority: optional

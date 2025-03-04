@@ -28,7 +28,7 @@ class AboutDialog(QDialog):
         layout.addWidget(title)
         
         # Version
-        version = QLabel(builtins._("Version 1.0"))
+        version = QLabel(builtins._("Version 1.0.1"))
         version.setAlignment(Qt.AlignCenter)
         layout.addWidget(version)
         
@@ -76,11 +76,25 @@ class AboutDialog(QDialog):
         
         # Read and display license file
         try:
-            license_path = Path(__file__).parent / 'LICENSE'
-            license_content = license_path.read_text()
-            license_text.setText(license_content)
+            # First try the installed package location
+            license_paths = [
+                Path('/usr/share/doc/gtts-gui/copyright'),  # Debian package location
+                Path(__file__).parent.parent.parent.parent / 'LICENSE',  # Development location
+                Path(__file__).parent / 'LICENSE'  # Old location (fallback)
+            ]
+            
+            license_content = None
+            for path in license_paths:
+                if path.exists():
+                    license_content = path.read_text()
+                    break
+            
+            if license_content:
+                license_text.setText(license_content)
+            else:
+                license_text.setText(builtins._("License file not found."))
         except Exception as e:
-            license_text.setText(builtins._("Error loading license file."))
+            license_text.setText(builtins._(f"Error loading license file: {str(e)}"))
         
         layout.addWidget(license_text)
         

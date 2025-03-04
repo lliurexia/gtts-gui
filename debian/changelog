@@ -1,3 +1,10 @@
+gtts-gui (1.0.1) stable; urgency=medium
+
+  * Fixed license display in About dialog
+  * Reformatted LICENSE file for better readability
+
+ -- LliureX Team <lliurex@gva.es>  Tue, 04 Mar 2025 11:56:58 +0100
+
 gtts-gui (1.0.0) stable; urgency=medium
 
   * Initial release

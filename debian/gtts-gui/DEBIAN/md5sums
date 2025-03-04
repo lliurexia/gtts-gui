@@ -141,7 +141,7 @@ faeba3f826ab167bc9be926d8ed1d1f8  usr/lib/gtts-gui/lib/gtts/tts.py
 b1a3b9f1eaca5455d5b4237b31c8a4d6  usr/lib/gtts-gui/lib/gtts/utils.py
 136046e54f2408e108c96d32b8dec1b8  usr/lib/gtts-gui/lib/gtts/version.py
 d41d8cd98f00b204e9800998ecf8427e  usr/lib/gtts-gui/lib/gtts_gui/__init__.py
-30621c947dc86b640faf772209a1d309  usr/lib/gtts-gui/lib/gtts_gui/about_dialog.py
+3b468dd41f0e50a5a48f162ea29de806  usr/lib/gtts-gui/lib/gtts_gui/about_dialog.py
 365c9bfeb7d89244f2ce01c1de44cb85  usr/lib/gtts-gui/lib/idna-3.10.dist-info/INSTALLER
 204c0612e40a4dd46012a78d02c80fb1  usr/lib/gtts-gui/lib/idna-3.10.dist-info/LICENSE.md
 322956c139192f40bb8105bf2cca32c8  usr/lib/gtts-gui/lib/idna-3.10.dist-info/METADATA
@@ -369,7 +369,7 @@ a23f6fa346bff7157320ba72e2821a70  usr/lib/gtts-gui/lib/pygame/docs/generated/_im
 3435fe6861d415b65f61fe4db43e127a  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/introduction-PuyoPuyo1.png
 b2d603552e2d3148cf2cf857fe4477d2  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/introduction-TPS.png
 b2d603552e2d3148cf2cf857fe4477d2  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/introduction-TPS1.png
-be653dfe06340e251c8fca59ebb1a0a6  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/joystick_calls.png
+b457db7c83ee7ab2024916805456f9f9  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/joystick_calls.png
 a49bc4418e08a9da2edac3187d8a4945  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/pygame_lofi.png
 2ec667ec466133a70bcf8a6e30ec6e1e  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/pygame_logo.png
 e05e1400eed2473f3ba52da8aae2b38e  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/pygame_powered.png
@@ -386,7 +386,7 @@ c7ff633599358c0cd4111964e81cedf5  usr/lib/gtts-gui/lib/pygame/docs/generated/_im
 f82a141387c26d643de3f8b92b0b3d12  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/surfarray_xfade.png
 3483da3846428982588b24caab903287  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/tom_basic.png
 ae7ab86da3e80e2d9c875e3a68a3fdc5  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/tom_event-flowchart.png
-9c62ae05ca79911f925b0a375d251378  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/tom_formulae.png
+1115270102bb3152ca12ab6b20ce31df  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/tom_formulae.png
 f6a9910afac9aeea92929de76fcc1fa4  usr/lib/gtts-gui/lib/pygame/docs/generated/_images/tom_radians.png
 ba3a50a64756e99aad37dad9f604e955  usr/lib/gtts-gui/lib/pygame/docs/generated/_sources/c_api.rst.txt
 236e636f4c84c8c0414a907a1a9f9abd  usr/lib/gtts-gui/lib/pygame/docs/generated/_sources/filepaths.rst.txt
@@ -442,7 +442,7 @@ ba0c95766a77a6c598a7ca542f1db738  usr/lib/gtts-gui/lib/pygame/docs/generated/_st
 2849239b95f5a9a2aea3f6ed9420bb88  usr/lib/gtts-gui/lib/pygame/docs/generated/_static/jquery-3.6.0.js
 8fb8fee4fcc3cc86ff6c724154c49c42  usr/lib/gtts-gui/lib/pygame/docs/generated/_static/jquery.js
 a56f6149e9ed16ae383a92b7718fbee6  usr/lib/gtts-gui/lib/pygame/docs/generated/_static/language_data.js
-5fb552bd35a01e27d853b0d203b5a38c  usr/lib/gtts-gui/lib/pygame/docs/generated/_static/legacy_logos.zip
+1ac7b1d715a1927b3f58866c15d28659  usr/lib/gtts-gui/lib/pygame/docs/generated/_static/legacy_logos.zip
 36b1a4b05451c7acde7ced60b2f6bc21  usr/lib/gtts-gui/lib/pygame/docs/generated/_static/minus.png
 0d7849fd4d4148b7f78cab60a087633a  usr/lib/gtts-gui/lib/pygame/docs/generated/_static/plus.png
 cea455069acac11dbdabf86358d23052  usr/lib/gtts-gui/lib/pygame/docs/generated/_static/pygame.css
@@ -597,14 +597,14 @@ b0a0ee36044d4228bc60533a277bba02  usr/lib/gtts-gui/lib/pygame/examples/blit_blen
 83665ef021b9b368929eb32e63c5649b  usr/lib/gtts-gui/lib/pygame/examples/camera.py
 0e2c955bd714ab16cc7c95d0d87b3820  usr/lib/gtts-gui/lib/pygame/examples/chimp.py
 4be617e42dbdbd74e76d9fcdeaaa9383  usr/lib/gtts-gui/lib/pygame/examples/cursors.py
-704381247965e85548b9a8872b38b470  usr/lib/gtts-gui/lib/pygame/examples/data/BGR.png
+9a250540f039519b4b2c7534294edc3b  usr/lib/gtts-gui/lib/pygame/examples/data/BGR.png
 c1418eadbfb6aeff1b7de78504189773  usr/lib/gtts-gui/lib/pygame/examples/data/alien1.gif
 afbe81c691f118c891792f392cc3de9b  usr/lib/gtts-gui/lib/pygame/examples/data/alien1.jpg
-713646971637da39b2986f042c4f2f05  usr/lib/gtts-gui/lib/pygame/examples/data/alien1.png
+bf97f4706a99a5d9446ebd79ff57bf69  usr/lib/gtts-gui/lib/pygame/examples/data/alien1.png
 29d3cd7bb1cb0bf12aea73eb537d1dee  usr/lib/gtts-gui/lib/pygame/examples/data/alien2.gif
-a1c62a8682ebffc78a3afe1c371e2dc9  usr/lib/gtts-gui/lib/pygame/examples/data/alien2.png
+eba5ad7793ec1b0c02b33aa6f932da29  usr/lib/gtts-gui/lib/pygame/examples/data/alien2.png
 a5d6272e8475c11427c384469d60ac24  usr/lib/gtts-gui/lib/pygame/examples/data/alien3.gif
-5af81aa514f7784444dfc18a321da35c  usr/lib/gtts-gui/lib/pygame/examples/data/alien3.png
+8347bae9b875efa7fcd6247251eed7f6  usr/lib/gtts-gui/lib/pygame/examples/data/alien3.png
 4ce16d3821486d0dc5e460cd4d38837e  usr/lib/gtts-gui/lib/pygame/examples/data/arraydemo.bmp
 ee5557a7b46fd00503cd5986d1209580  usr/lib/gtts-gui/lib/pygame/examples/data/asprite.bmp
 e71cf3b27fde8d12fe808b35f2cf2db7  usr/lib/gtts-gui/lib/pygame/examples/data/background.gif
@@ -627,7 +627,7 @@ a6d2f122dcf9c9a70e6e29ca18116734  usr/lib/gtts-gui/lib/pygame/examples/data/grey
 23a486a097e85e92b7b91f86dd93f044  usr/lib/gtts-gui/lib/pygame/examples/data/house_lo.mp3
 1587c68eeb0a08df3e4a4e4dca86d782  usr/lib/gtts-gui/lib/pygame/examples/data/house_lo.ogg
 c123a744800d3c107748294798c4d013  usr/lib/gtts-gui/lib/pygame/examples/data/house_lo.wav
-34884997f327cc4896f37d87d588c0b8  usr/lib/gtts-gui/lib/pygame/examples/data/laplacian.png
+96f2008933e6187623192e965a30d159  usr/lib/gtts-gui/lib/pygame/examples/data/laplacian.png
 7360aba18e456ca057f8a30e45e44b1f  usr/lib/gtts-gui/lib/pygame/examples/data/liquid.bmp
 68c77b3381489c43dac393fdba6eb2af  usr/lib/gtts-gui/lib/pygame/examples/data/midikeys.png
 3c6965288b6332e7dfd99752a9c4d037  usr/lib/gtts-gui/lib/pygame/examples/data/player1.gif
@@ -1091,7 +1091,8 @@ ee323197bb13ad9ee82d28ab313bee00  usr/lib/gtts-gui/lib/urllib3/util/url.py
 3c5dc84f86959542df8f2d38fdcd9366  usr/lib/gtts-gui/lib/urllib3/util/util.py
 d333c4cdb4cf3074c1245164c65aac59  usr/lib/gtts-gui/lib/urllib3/util/wait.py
 f253cd64cadc9579c3fcf9b5eedf8383  usr/share/applications/gtts-gui.desktop
-5fb89853cb1e27ffaa60f018c1cc5b53  usr/share/doc/gtts-gui/changelog.gz
+476dfef6da501458e0d0172d158d9011  usr/share/doc/gtts-gui/changelog.gz
+d55de93f0ae86bfe2f42cef6450936a5  usr/share/doc/gtts-gui/copyright
 1e712af91cc94796a1a55ebe6d79a2d7  usr/share/gtts-gui/assets/sample.png
 c947b7a70c2a406bf7b8d1a79dea405f  usr/share/gtts-gui/supported_domains.txt
 548ffebdd41d12b2af804a44fdb837cc  usr/share/icons/hicolor/scalable/apps/gtts-gui.svg
