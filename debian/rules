@@ -1,0 +1,31 @@
+#!/usr/bin/make -f
+
+%:
+	dh $@
+
+override_dh_auto_build:
+	# Nothing to build
+
+override_dh_auto_install:
+	mkdir -p debian/gtts-gui/usr/bin/
+	mkdir -p debian/gtts-gui/usr/share/applications/
+	mkdir -p debian/gtts-gui/usr/share/icons/hicolor/scalable/apps/
+	mkdir -p debian/gtts-gui/usr/share/gtts-gui/
+	mkdir -p debian/gtts-gui/usr/lib/gtts-gui/lib/gtts_gui/
+	mkdir -p debian/gtts-gui/usr/lib/gtts-gui/bin/
+	# Install main application
+	install -m 755 main.py debian/gtts-gui/usr/lib/gtts-gui/bin/main.py
+	install -m 755 debian/gtts-gui-wrapper debian/gtts-gui/usr/bin/gtts-gui
+	install -m 644 gtts-gui.desktop debian/gtts-gui/usr/share/applications/
+	install -m 644 icons/app.svg debian/gtts-gui/usr/share/icons/hicolor/scalable/apps/gtts-gui.svg
+	# Install resources
+	cp -r locale debian/gtts-gui/usr/share/
+	cp -r assets debian/gtts-gui/usr/share/gtts-gui/
+	cp supported_domains.txt debian/gtts-gui/usr/share/gtts-gui/
+	install -m 644 about_dialog.py debian/gtts-gui/usr/lib/gtts-gui/lib/gtts_gui/
+	touch debian/gtts-gui/usr/lib/gtts-gui/lib/gtts_gui/__init__.py
+	# Install vendored dependencies
+	cp -r vendor/* debian/gtts-gui/usr/lib/gtts-gui/lib/
+
+override_dh_auto_test:
+	# No tests

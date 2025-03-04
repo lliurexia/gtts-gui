@@ -1,6 +1,6 @@
 """
 Google Text-to-Speech GUI Application
-Using PyQt6 and gTTS
+Using PyQt5 and gTTS
 """
 
 import sys
@@ -9,20 +9,18 @@ from typing import Optional
 import pygame
 import gettext
 import os
+import locale
 
-from PyQt6.QtWidgets import (
+from PyQt5.QtWidgets import (
     QApplication, QMainWindow, QWidget, QVBoxLayout, QHBoxLayout,
     QComboBox, QTextEdit, QPushButton, QFileDialog, QProgressBar,
     QLabel, QMessageBox
 )
-from about_dialog import AboutDialog
-from PyQt6.QtCore import Qt, QThread, pyqtSignal, QTimer
-from PyQt6.QtGui import QIcon
-from pathlib import Path
+from gtts_gui.about_dialog import AboutDialog
+from PyQt5.QtCore import Qt, QThread, pyqtSignal, QTimer
+from PyQt5.QtGui import QIcon
 from gtts import gTTS
 import gtts.lang
-import os
-import locale
 
 class TTSWorker(QThread):
     finished = pyqtSignal(str)
@@ -63,7 +61,7 @@ def setup_translations():
         lang = 'en'
     
     # Set up translations
-    localedir = os.path.join(os.path.dirname(__file__), 'locale')
+    localedir = '/usr/share/locale'
     try:
         translation = gettext.translation('messages', localedir=localedir, languages=[lang])
         translation.install()
@@ -78,8 +76,7 @@ class MainWindow(QMainWindow):
         self.setMinimumSize(600, 400)
         
         # Set window icon
-        icon_path = Path(__file__).parent / 'icons' / 'app.svg'
-        self.setWindowIcon(QIcon(str(icon_path)))
+        self.setWindowIcon(QIcon('/usr/share/icons/hicolor/scalable/apps/gtts-gui.svg'))
         
         # Initialize pygame mixer for audio playback
         pygame.mixer.init()

@@ -1,0 +1,7 @@
+#!/bin/bash
+if [ -z "$PYTHONPATH" ]; then
+    export PYTHONPATH=/usr/lib/gtts-gui/lib:/usr/lib/python3/dist-packages
+else
+    export PYTHONPATH=/usr/lib/gtts-gui/lib:/usr/lib/python3/dist-packages:"$PYTHONPATH"
+fi
+python3 /usr/lib/gtts-gui/bin/main.py "$@"

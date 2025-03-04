@@ -1,0 +1,21 @@
+Package: gtts-gui
+Version: 1.0.0
+Architecture: all
+Maintainer: LliureX Team
+Installed-Size: 37706
+Depends: python3, python3-pyqt5
+Section: education
+Priority: optional
+Description: GUI for Google Text-to-Speech
+ A graphical user interface for Google's Text-to-Speech service.
+ Supports multiple languages including Valencian Catalan.
+ .
+ Features:
+  * Text-to-speech conversion
+  * Multiple language support
+  * Save audio files
+  * Simple and intuitive interface
+  * Includes all required Python dependencies
+ .
+ This package includes vendored Python dependencies in a private directory
+ to avoid conflicts with system packages.

@@ -1,0 +1,57 @@
+msgid ""
+msgstr ""
+"Content-Type: text/plain; charset=UTF-8\n"
+
+msgid "Google Text-to-Speech"
+msgstr "Google Text-to-Speech"
+
+msgid "Language:"
+msgstr "Idioma:"
+
+msgid "Accent:"
+msgstr "Acento:"
+
+msgid "Enter text to convert to speech..."
+msgstr "Introduce el texto para convertir a voz..."
+
+msgid "Generate Speech"
+msgstr "Generar Voz"
+
+msgid "Pause"
+msgstr "Pausar"
+
+msgid "Save"
+msgstr "Guardar"
+
+msgid "About"
+msgstr "Acerca de"
+
+msgid "Error"
+msgstr "Error"
+
+msgid "Please enter some text"
+msgstr "Por favor, introduce algún texto"
+
+msgid "About Google Text-to-Speech"
+msgstr "Acerca de Google Text-to-Speech"
+
+msgid "Version 1.0"
+msgstr "Versión 1.0"
+
+msgid "A simple and intuitive graphical interface for Google's Text-to-Speech service. Convert text to natural-sounding speech in multiple languages."
+msgstr "Una interfaz gráfica simple e intuitiva para el servicio de texto a voz de Google. Convierte texto a voz natural en múltiples idiomas."
+
+msgid "Developed by LliureX\nUsing PyQt6 and gTTS (Google Text-to-Speech)\n© 2025 LliureX"
+msgstr "Desarrollado por LliureX\nUsando PyQt6 y gTTS (Google Text-to-Speech)\n© 2025 LliureX"
+
+msgid "View License"
+msgstr "Ver Licencia"
+
+msgid "Close"
+msgstr "Cerrar"
+
+msgid "MIT License"
+msgstr "Licencia MIT"
+
+msgid "Error loading license file."
+msgstr "Error al cargar el archivo de licencia."

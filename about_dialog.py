@@ -2,10 +2,10 @@
 About dialog for the Google Text-to-Speech GUI Application
 """
 
-from PyQt6.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton,
+from PyQt5.QtWidgets import (QDialog, QVBoxLayout, QHBoxLayout, QLabel, QPushButton,
                              QTextEdit, QDialogButtonBox)
-from PyQt6.QtCore import Qt
-from PyQt6.QtGui import QFont
+from PyQt5.QtCore import Qt
+from PyQt5.QtGui import QFont
 from pathlib import Path
 import builtins
 
@@ -24,12 +24,12 @@ class AboutDialog(QDialog):
         title_font.setPointSize(16)
         title_font.setBold(True)
         title.setFont(title_font)
-        title.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        title.setAlignment(Qt.AlignCenter)
         layout.addWidget(title)
         
         # Version
         version = QLabel(builtins._("Version 1.0"))
-        version.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        version.setAlignment(Qt.AlignCenter)
         layout.addWidget(version)
         
         # Description
@@ -39,12 +39,12 @@ class AboutDialog(QDialog):
             "speech in multiple languages.")
         )
         description.setWordWrap(True)
-        description.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        description.setAlignment(Qt.AlignCenter)
         layout.addWidget(description)
         
         # Credits
-        credits = QLabel(builtins._("Developed by LliureX\nUsing PyQt6 and gTTS (Google Text-to-Speech)\n© 2025 LliureX"))
-        credits.setAlignment(Qt.AlignmentFlag.AlignCenter)
+        credits = QLabel(builtins._("Developed by LliureX\nUsing PyQt5 and gTTS (Google Text-to-Speech)\n© 2025 LliureX"))
+        credits.setAlignment(Qt.AlignCenter)
         layout.addWidget(credits)
         
         # Buttons
@@ -85,7 +85,7 @@ class AboutDialog(QDialog):
         layout.addWidget(license_text)
         
         # OK button
-        buttons = QDialogButtonBox(QDialogButtonBox.StandardButton.Ok)
+        buttons = QDialogButtonBox(QDialogButtonBox.Ok)
         buttons.accepted.connect(dialog.accept)
         layout.addWidget(buttons)
         

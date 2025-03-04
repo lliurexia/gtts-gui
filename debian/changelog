@@ -1,0 +1,8 @@
+gtts-gui (1.0.0) stable; urgency=medium
+
+  * Initial release
+  * Support for multiple languages including Valencian Catalan
+  * PyQt6-based graphical interface
+  * Audio playback support
+
+ -- LliureX Team <lliurex@gva.es>  Tue, 04 Mar 2025 08:27:12 +0100

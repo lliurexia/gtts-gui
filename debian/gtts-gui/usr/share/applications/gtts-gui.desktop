@@ -1,0 +1,9 @@
+[Desktop Entry]
+Version=1.0
+Type=Application
+Name=Google Text-to-Speech
+Comment=Convert text to speech using Google's service
+Exec=python3 /home/lliurex23/gtts-gui/main.py
+Icon=/home/lliurex23/gtts-gui/icons/app.svg
+Terminal=false
+Categories=Audio;Utility;
